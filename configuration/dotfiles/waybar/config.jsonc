@@ -6,13 +6,14 @@
     "margin-top": 2,
     "margin-left": 6,
     "margin-right": 6,
-    "height": 40,
 
     "modules-left": [
+        "custom/notification",
         "hyprland/workspaces",
         "hyprland/window"
     ],
     "modules-center": [
+        "custom/weather",
         "clock"
     ],
     "modules-right": [
@@ -24,8 +25,29 @@
     ],
 
     // ===== Left =====
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󱅫",
+            "none":         "󰂚",
+            "dnd-notification": "󱅫",
+            "dnd-none":     "󰂛"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
     "hyprland/workspaces": {
-        "format": "{id}",
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "show-special": false,
+        "on-click": "activate",
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1",
         "persistent-workspaces": {
@@ -33,6 +55,12 @@
             "2": [],
             "3": [],
             "4": []
+        },
+        "format-icons": {
+            "1": "I",
+            "2": "II",
+            "3": "III",
+            "4": "IV"
         }
     },
 
@@ -43,28 +71,43 @@
     },
 
     // ===== Center =====
+    "custom/weather": {
+        "format": "{}",
+        "return-type": "json",
+        "interval": 3600,
+        "exec": "~/.config/waybar/scripts/weather.sh",
+        "tooltip": true
+    },
+
     "clock": {
         "interval": 1,
-        "format": "{:%H:%M:%S}",
-        "format-alt": "{:%A, %d %B %Y}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "format": " {:%H:%M:%S}",
+        "format-alt": " {:%H:%M   %Y, %d %B, %A}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months":   "<span color='#ffead3'><b>{}</b></span>",
+                "days":     "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":    "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today":    "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        }
     },
 
     // ===== Right =====
     "custom/media": {
-        "format": "{icon} {}",
-        "format-icons": {
-            "Playing": "󰎈",
-            "Paused":  "󰏤",
-            "Stopped": ""
-        },
+        "format": "<span>{}</span>",
         "return-type": "json",
-        "max-length": 40,
-        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \"{{playerName}}: {{artist}} - {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F 2>/dev/null",
-        "on-click": "playerctl play-pause",
-        "on-scroll-up": "playerctl next",
-        "on-scroll-down": "playerctl previous",
-        "smooth-scrolling-threshold": 5
+        "max-length": 35,
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} ~ {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F 2>/dev/null",
+        "on-click-middle": "playerctl play-pause",
+        "on-click": "playerctl previous",
+        "on-click-right": "playerctl next"
     },
 
     "pulseaudio": {
@@ -78,21 +121,20 @@
     },
 
     "network": {
-        "format-wifi":        "󰤨  {signalStrength}%",
-        "format-ethernet":    "󰈀  connected",
-        "format-disconnected":"󰤭  disconnected",
-        "format-linked":      "󰈁  {ifname} (no IP)",
+        "format-wifi":         "󰤨  {signalStrength}%",
+        "format-ethernet":     "󰈀  connected",
+        "format-disconnected": "󰤭  disconnected",
+        "format-linked":       "󰈁  {ifname} (no IP)",
         "tooltip-format-wifi": "{essid} ({ifname})\n{ipaddr}",
         "on-click": "nm-connection-editor"
     },
 
     "bluetooth": {
-        "format":                    "󰂯",
-        "format-connected":          "󰂱  {device_alias}",
-        "format-connected-battery":  "󰂱  {device_alias}  {device_battery_percentage}%",
-        "format-off":                "󰂲",
-        "tooltip-format":            "{controller_alias}\n{controller_address}\n{num_connections} connected",
-        "tooltip-format-connected":  "{controller_alias}\n\n{device_enumerate}",
+        "format":                   "󰂯",
+        "format-connected":         "󰂱  {device_alias}",
+        "format-off":               "󰂲",
+        "tooltip-format":           "{controller_alias}\n{controller_address}\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
         "on-click": "blueman-manager"
     },

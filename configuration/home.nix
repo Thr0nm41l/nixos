@@ -16,6 +16,7 @@
         # Status bar
         waybar
         playerctl
+        jq
 
         # App launcher
         rofi
@@ -75,12 +76,21 @@
         "hypr/windowrules.conf".source = ./dotfiles/hypr/windowrules.conf;
         "hypr/hyprlock.conf".source    = ./dotfiles/hypr/hyprlock.conf;
         "hypr/hypridle.conf".source    = ./dotfiles/hypr/hypridle.conf;
-        "waybar/config.jsonc".source   = ./dotfiles/waybar/config.jsonc;
-        "waybar/style.css".source      = ./dotfiles/waybar/style.css;
+        "waybar/config.jsonc".source         = ./dotfiles/waybar/config.jsonc;
+        "waybar/style.css".source            = ./dotfiles/waybar/style.css;
+        "waybar/scripts/weather.sh" = {
+            source      = ./dotfiles/waybar/scripts/weather.sh;
+            executable  = true;
+        };
         "rofi/config.rasi".source      = ./dotfiles/rofi/config.rasi;
         "rofi/theme.rasi".source       = ./dotfiles/rofi/theme.rasi;
         "swaync/config.json".source            = ./dotfiles/swaync/config.json;
         "swaync/style.css".source              = ./dotfiles/swaync/style.css;
+        "swayosd/style.css".source             = ./dotfiles/swayosd/style.css;
+        "rofi/quick-icons/copy.png".source     = ./dotfiles/rofi/quick-icons/copy.png;
+        "rofi/quick-icons/kill.png".source     = ./dotfiles/rofi/quick-icons/kill.png;
+        "rofi/quick-icons/onenote.png".source  = ./dotfiles/rofi/quick-icons/onenote.png;
+        "rofi/quick-icons/youtube.png".source  = ./dotfiles/rofi/quick-icons/youtube.png;
         "wallpapers/salty_mountains.png".source = ./dotfiles/wallpapers/salty_mountains.png;
     };
 

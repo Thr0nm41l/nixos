@@ -1,134 +1,160 @@
-/* ===== Catppuccin Mocha ===== */
 * {
-    base:     #1e1e2e;
-    mantle:   #181825;
-    crust:    #11111b;
-    text:     #cdd6f4;
-    subtext1: #bac2de;
-    subtext0: #a6adc8;
-    surface2: #585b70;
-    surface1: #45475a;
-    surface0: #313244;
-    mauve:    #cba6f7;
-    blue:     #89b4fa;
-    sapphire: #74c7ec;
-    pink:     #f5c2e7;
-    red:      #f38ba8;
+    /* Catppuccin Mocha Palette */
+    bg-col:                 #1e1e2e;
+    bg-col-light:           #1e1e2e;
+    border-col:             #1e1e2e;
+    selected-col:           #1e1e2e;
+    blue:                   #89b4fa;
+    fg-col:                 #cdd6f4;
+    fg-col2:                #f38ba8;
+    grey:                   #6c7086;
+    surface0:               #313244;
+    surface1:               #45475a;
+    mauve:                  #cba6f7;
+    rosewater:              #f5e0dc;
 
-    background-color: transparent;
-    text-color:       @text;
-    font:             "JetBrainsMono Nerd Font 11";
+    bg-alpha:               #1e1e2ef2;
+    surface-alpha:          #31324480;
+
+    active-grad:            linear-gradient(to bottom, #45475a, #313244);
+    tab-grad:               linear-gradient(to right, #cba6f7, #89b4fa);
+
+    width: 1200px;
+    font: "JetBrainsMono Nerd Font 11";
 }
 
-/* ===== Window ===== */
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
 window {
-    width:            1200px;
-    height:           600px;
-    border-radius:    20px;
-    background-color: @base;
-    border:           2px solid;
-    border-color:     @mauve;
-    padding:          0;
+    height: 600px;
+    background-color: @bg-alpha;
+    border: 2px;
+    border-color: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    transparency: "real";
 }
 
-/* ===== Main box ===== */
 mainbox {
     background-color: transparent;
-    children:         [ inputbar, listview ];
-    spacing:          0;
-    padding:          20px;
+    children: [ input-area, listview ];
+    orientation: horizontal;
+    spacing: 20px;
+    padding: 30px;
 }
 
-/* ===== Input bar ===== */
-inputbar {
-    background-color: @surface0;
-    border-radius:    12px;
-    padding:          12px 16px;
-    margin:           0 0 16px 0;
-    children:         [ prompt, entry ];
-    spacing:          8px;
-}
-
-prompt {
+input-area {
+    children: [ inputbar, mode-switcher, dummy ];
     background-color: transparent;
-    text-color:       @mauve;
-    font:             "JetBrainsMono Nerd Font Bold 11";
+    orientation: vertical;
+    expand: false;
+    width: 220px;
+    spacing: 15px;
+}
+
+inputbar {
+    children: [ entry ];
+    background-color: @surface-alpha;
+    border-radius: 12px;
+    padding: 10px;
+    orientation: horizontal;
+    border: 1px;
+    border-color: rgba(255, 255, 255, 0.05);
 }
 
 entry {
+    padding: 4px;
+    text-color: @fg-col;
     background-color: transparent;
-    text-color:       @text;
-    placeholder:      "Search...";
-    placeholder-color: @surface2;
-    cursor:           text;
+    placeholder: "Search";
+    placeholder-color: @grey;
+    font: "JetBrainsMono Nerd Font Bold 11";
+    horizontal-align: 0.0;
 }
 
-/* ===== List view ===== */
+mode-switcher {
+    orientation: vertical;
+    spacing: 8px;
+    background-color: transparent;
+}
+
+button {
+    padding: 12px;
+    background-color: @surface-alpha;
+    text-color: @grey;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button selected {
+    background-image: @tab-grad;
+    text-color: @bg-col;
+    font-weight: bold;
+    border: 0px;
+}
+
+dummy {
+    expand: true;
+    background-color: transparent;
+}
+
 listview {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
     background-color: transparent;
-    columns:          6;
-    lines:            3;
-    scrollbar:        false;
-    spacing:          8px;
-    cycle:            true;
-    dynamic:          true;
-    layout:           vertical;
+    columns: 6;
+    lines: 6;
+    spacing: 12px;
+    flow: horizontal;
+    fixed-columns: true;
 }
 
-/* ===== Elements ===== */
 element {
+    orientation: vertical;
+    children: [ element-icon, element-text ];
+    padding: 15px 5px;
+    spacing: 6px;
     background-color: transparent;
-    border-radius:    12px;
-    padding:          12px 8px;
-    orientation:      vertical;
-    spacing:          8px;
-    cursor:           pointer;
+    border-radius: 14px;
+    text-color: @fg-col;
+    cursor: pointer;
+    border: 1px;
+    border-color: transparent;
 }
 
-element normal.normal,
-element normal.urgent,
-element normal.active {
-    background-color: transparent;
-    text-color:       @text;
-}
-
-element selected.normal {
-    background-color: @surface0;
-    text-color:       @text;
-    border:           1px solid;
-    border-color:     @mauve;
-}
-
-element alternate.normal {
-    background-color: transparent;
-    text-color:       @subtext0;
+element selected {
+    background-image: @active-grad;
+    text-color: @mauve;
+    border: 1px;
+    border-color: @mauve;
+    border-radius: 14px;
 }
 
 element-icon {
-    size:             42px;
-    border-radius:    14px;
-    cursor:           inherit;
+    size: 42px;
     horizontal-align: 0.5;
+    vertical-align: 0.5;
+    cursor: inherit;
 }
 
 element-text {
-    background-color: transparent;
-    text-color:       inherit;
-    cursor:           inherit;
+    text-color: inherit;
     horizontal-align: 0.5;
-    vertical-align:   0.5;
-    font:             "JetBrainsMono Nerd Font 10";
+    vertical-align: 0.5;
+    cursor: inherit;
+    font: "JetBrainsMono Nerd Font 10";
 }
 
-/* ===== Message ===== */
-message {
-    background-color: @surface0;
-    border-radius:    12px;
-    padding:          8px 16px;
-    margin:           16px 0 0 0;
-}
-
-textbox {
-    background-color: transparent;
-    text-color:       @subtext1;
+error-message {
+    background-color: @bg-col;
+    border: 1px;
+    border-color: @fg-col2;
+    border-radius: 12px;
+    padding: 20px;
+    text-color: @fg-col2;
 }
