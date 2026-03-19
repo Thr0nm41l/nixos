@@ -84,6 +84,20 @@
         "wallpapers/salty_mountains.png".source = ./dotfiles/wallpapers/salty_mountains.png;
     };
 
+    gtk = {
+        enable = true;
+        theme = {
+            name = "adw-gtk3-dark";
+            package = pkgs.adw-gtk3;
+        };
+        iconTheme = {
+            name = "Papirus-Dark";
+            package = pkgs.papirus-icon-theme;
+        };
+        gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
+        gtk4.extraConfig.gtk-application-prefer-dark-theme = true;
+    };
+
     programs.kitty = {
         enable = true;
         font = {
@@ -125,5 +139,6 @@
                 file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
             }
         ];
+        initExtra = "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh";
     };
 }

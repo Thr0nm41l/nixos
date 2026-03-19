@@ -46,7 +46,12 @@
         extraGroups = [ "wheel" "networkmanager" "video" "docker" ];
         initialPassword = "changeme";
         shell = pkgs.zsh;
+        home = "/home/thron";
     };
+
+    systemd.tmpfiles.rules = [
+        "d /home/thron 0700 thron users -"
+    ];
 
     # Enable Hyprland
     programs.hyprland.enable = true;
