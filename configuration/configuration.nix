@@ -43,10 +43,15 @@
 
     users.users.thron = {
         isNormalUser = true;
+	home = "/home/thron";
         extraGroups = [ "wheel" "networkmanager" "video" "docker" ];
         initialPassword = "changeme";
         shell = pkgs.zsh;
     };
+
+    systemd.tmpfiles.rules = [
+        "d /home/thron 0700 thron users -"
+    ];
 
     # Enable Hyprland
     programs.hyprland.enable = true;
