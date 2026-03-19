@@ -68,6 +68,11 @@
         wireplumber.enable = true;
     };
 
+    # Fonts
+    fonts.packages = with pkgs; [
+        nerd-fonts.meslo-lg
+    ];
+
     # Docker
     virtualisation.docker.enable = true;
 

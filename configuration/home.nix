@@ -6,9 +6,6 @@
     home.stateVersion = "25.11";
 
     home.packages = with pkgs; [
-        # Terminal
-        kitty
-
         # Hyprland ecosystem
         hyprpaper
         hypridle
@@ -38,6 +35,9 @@
         # Text editor
         mousepad
 
+        # PDF reader
+        okular
+
         # Proton
         proton-mail
         proton-pass
@@ -56,6 +56,14 @@
         obs-studio
         teamspeak6-client
     ];
+
+    programs.kitty = {
+        enable = true;
+        font = {
+            name = "MesloLGS NF";
+            size = 12;
+        };
+    };
 
     programs.vscode = {
         enable = true;
@@ -84,5 +92,12 @@
         shellAliases = {
             btw = "echo I use NixOS btw";
         };
+        plugins = [
+            {
+                name = "powerlevel10k";
+                src = pkgs.zsh-powerlevel10k;
+                file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+            }
+        ];
     };
 }
