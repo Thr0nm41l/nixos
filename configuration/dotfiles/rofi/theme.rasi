@@ -1,0 +1,134 @@
+/* ===== Catppuccin Mocha ===== */
+* {
+    base:     #1e1e2e;
+    mantle:   #181825;
+    crust:    #11111b;
+    text:     #cdd6f4;
+    subtext1: #bac2de;
+    subtext0: #a6adc8;
+    surface2: #585b70;
+    surface1: #45475a;
+    surface0: #313244;
+    mauve:    #cba6f7;
+    blue:     #89b4fa;
+    sapphire: #74c7ec;
+    pink:     #f5c2e7;
+    red:      #f38ba8;
+
+    background-color: transparent;
+    text-color:       @text;
+    font:             "JetBrainsMono Nerd Font 11";
+}
+
+/* ===== Window ===== */
+window {
+    width:            1200px;
+    height:           600px;
+    border-radius:    20px;
+    background-color: @base;
+    border:           2px solid;
+    border-color:     @mauve;
+    padding:          0;
+}
+
+/* ===== Main box ===== */
+mainbox {
+    background-color: transparent;
+    children:         [ inputbar, listview ];
+    spacing:          0;
+    padding:          20px;
+}
+
+/* ===== Input bar ===== */
+inputbar {
+    background-color: @surface0;
+    border-radius:    12px;
+    padding:          12px 16px;
+    margin:           0 0 16px 0;
+    children:         [ prompt, entry ];
+    spacing:          8px;
+}
+
+prompt {
+    background-color: transparent;
+    text-color:       @mauve;
+    font:             "JetBrainsMono Nerd Font Bold 11";
+}
+
+entry {
+    background-color: transparent;
+    text-color:       @text;
+    placeholder:      "Search...";
+    placeholder-color: @surface2;
+    cursor:           text;
+}
+
+/* ===== List view ===== */
+listview {
+    background-color: transparent;
+    columns:          6;
+    lines:            3;
+    scrollbar:        false;
+    spacing:          8px;
+    cycle:            true;
+    dynamic:          true;
+    layout:           vertical;
+}
+
+/* ===== Elements ===== */
+element {
+    background-color: transparent;
+    border-radius:    12px;
+    padding:          12px 8px;
+    orientation:      vertical;
+    spacing:          8px;
+    cursor:           pointer;
+}
+
+element normal.normal,
+element normal.urgent,
+element normal.active {
+    background-color: transparent;
+    text-color:       @text;
+}
+
+element selected.normal {
+    background-color: @surface0;
+    text-color:       @text;
+    border:           1px solid;
+    border-color:     @mauve;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color:       @subtext0;
+}
+
+element-icon {
+    size:             42px;
+    border-radius:    14px;
+    cursor:           inherit;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    cursor:           inherit;
+    horizontal-align: 0.5;
+    vertical-align:   0.5;
+    font:             "JetBrainsMono Nerd Font 10";
+}
+
+/* ===== Message ===== */
+message {
+    background-color: @surface0;
+    border-radius:    12px;
+    padding:          8px 16px;
+    margin:           16px 0 0 0;
+}
+
+textbox {
+    background-color: transparent;
+    text-color:       @subtext1;
+}

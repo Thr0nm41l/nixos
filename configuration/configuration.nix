@@ -51,6 +51,18 @@
     # Enable Hyprland
     programs.hyprland.enable = true;
 
+    # Display manager
+    services.displayManager.sddm = {
+        enable = true;
+        wayland.enable = true;
+    };
+
+    # Polkit (required for Hyprland privilege escalation)
+    security.polkit.enable = true;
+
+    # RTKit (real-time priority for PipeWire)
+    security.rtkit.enable = true;
+
     # Steam (requires system-level setup for 32-bit support)
     programs.steam.enable = true;
 
@@ -71,6 +83,8 @@
     # Fonts
     fonts.packages = with pkgs; [
         nerd-fonts.meslo-lg
+        nerd-fonts.jetbrains-mono
+        nerd-fonts.iosevka
     ];
 
     # Docker
@@ -93,6 +107,7 @@
         wget
         curl
         vim
+        polkit_gnome
     ];
 
     system.stateVersion = "25.11";

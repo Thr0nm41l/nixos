@@ -7,19 +7,29 @@
 
     home.packages = with pkgs; [
         # Hyprland ecosystem
-        hyprpaper
+        swww
         hypridle
         hyprlock
         hyprpicker
+        hyprshot
 
         # Status bar
         waybar
+        playerctl
 
         # App launcher
-        rofi-wayland
+        rofi
+        papirus-icon-theme
 
         # Notifications
-        dunst
+        swaynotificationcenter
+
+        # OSD (volume/brightness)
+        swayosd
+
+        # Clipboard
+        wl-clipboard
+        cliphist
 
         # Wayland Qt support
         qt5.qtwayland
@@ -30,21 +40,21 @@
         mission-center
 
         # File manager
-        thunar
+        xfce.thunar
 
         # Text editor
-        mousepad
+        xfce.mousepad
 
         # PDF reader
-        okular
+        kdePackages.okular
 
         # Proton
-        proton-mail
+        protonmail-desktop
         proton-pass
 
         # Network & Bluetooth tray
-        blueman
         networkmanagerapplet
+        pavucontrol
 
         # Development
         (python313.withPackages (ps: with ps; [
@@ -55,7 +65,24 @@
         # Apps
         obs-studio
         teamspeak6-client
+        easyeffects
     ];
+
+    xdg.configFile = {
+        "hypr/hyprland.conf".source    = ./dotfiles/hypr/hyprland.conf;
+        "hypr/keybinds.conf".source    = ./dotfiles/hypr/keybinds.conf;
+        "hypr/autostart.conf".source   = ./dotfiles/hypr/autostart.conf;
+        "hypr/windowrules.conf".source = ./dotfiles/hypr/windowrules.conf;
+        "hypr/hyprlock.conf".source    = ./dotfiles/hypr/hyprlock.conf;
+        "hypr/hypridle.conf".source    = ./dotfiles/hypr/hypridle.conf;
+        "waybar/config.jsonc".source   = ./dotfiles/waybar/config.jsonc;
+        "waybar/style.css".source      = ./dotfiles/waybar/style.css;
+        "rofi/config.rasi".source      = ./dotfiles/rofi/config.rasi;
+        "rofi/theme.rasi".source       = ./dotfiles/rofi/theme.rasi;
+        "swaync/config.json".source            = ./dotfiles/swaync/config.json;
+        "swaync/style.css".source              = ./dotfiles/swaync/style.css;
+        "wallpapers/salty_mountains.png".source = ./dotfiles/wallpapers/salty_mountains.png;
+    };
 
     programs.kitty = {
         enable = true;
@@ -67,7 +94,7 @@
 
     programs.vscode = {
         enable = true;
-        extensions = with pkgs.vscode-extensions; [
+        profiles.default.extensions = with pkgs.vscode-extensions; [
             donjayamanne.githistory
             mechatroner.rainbow-csv
             redhat.vscode-yaml
@@ -78,11 +105,10 @@
     programs.firefox = {
         enable = true;
         profiles.thron = {
-            extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+            extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
                 proton-pass
                 proton-vpn
                 ublock-origin
-                adblock-plus
             ];
         };
     };

@@ -13,7 +13,7 @@
         nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
-                { nixpkgs.overlays = [ nur.overlay ]; }
+                { nixpkgs.overlays = [ nur.overlays.default ]; }
                 ./configuration.nix
                 home-manager.nixosModules.home-manager
                 {

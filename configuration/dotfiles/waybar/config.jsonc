@@ -1,0 +1,104 @@
+{
+    "layer": "top",
+    "position": "top",
+    "exclusive": true,
+    "gtk-layer-shell": true,
+    "margin-top": 2,
+    "margin-left": 6,
+    "margin-right": 6,
+    "height": 40,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "custom/media",
+        "pulseaudio",
+        "network",
+        "bluetooth",
+        "tray"
+    ],
+
+    // ===== Left =====
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": []
+        }
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 50,
+        "separate-outputs": true
+    },
+
+    // ===== Center =====
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M:%S}",
+        "format-alt": "{:%A, %d %B %Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    // ===== Right =====
+    "custom/media": {
+        "format": "{icon} {}",
+        "format-icons": {
+            "Playing": "󰎈",
+            "Paused":  "󰏤",
+            "Stopped": ""
+        },
+        "return-type": "json",
+        "max-length": 40,
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \"{{playerName}}: {{artist}} - {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F 2>/dev/null",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "smooth-scrolling-threshold": 5
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟  muted",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol",
+        "tooltip-format": "{desc} — {volume}%"
+    },
+
+    "network": {
+        "format-wifi":        "󰤨  {signalStrength}%",
+        "format-ethernet":    "󰈀  connected",
+        "format-disconnected":"󰤭  disconnected",
+        "format-linked":      "󰈁  {ifname} (no IP)",
+        "tooltip-format-wifi": "{essid} ({ifname})\n{ipaddr}",
+        "on-click": "nm-connection-editor"
+    },
+
+    "bluetooth": {
+        "format":                    "󰂯",
+        "format-connected":          "󰂱  {device_alias}",
+        "format-connected-battery":  "󰂱  {device_alias}  {device_battery_percentage}%",
+        "format-off":                "󰂲",
+        "tooltip-format":            "{controller_alias}\n{controller_address}\n{num_connections} connected",
+        "tooltip-format-connected":  "{controller_alias}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "blueman-manager"
+    },
+
+    "tray": {
+        "spacing": 8,
+        "icon-size": 16
+    }
+}

@@ -77,6 +77,8 @@ The `configuration.nix` file is already written in the repo at `configuration/co
 ```bash
 cd /mnt/etc/nixos/nixos-config/configuration
 
+git add .
+
 nixos-install --flake .#nixos-btw
 ```
 

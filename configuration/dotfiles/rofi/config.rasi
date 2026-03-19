@@ -1,0 +1,14 @@
+configuration {
+    modi:            "drun,filebrowser,window";
+    show-icons:      true;
+    display-drun:    "";
+    display-window:  "";
+    display-filebrowser: "";
+    drun-display-format: "{name}";
+    hover-select:    true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+    icon-theme:      "Papirus-Dark";
+
+    @theme "~/.config/rofi/theme.rasi"
+}

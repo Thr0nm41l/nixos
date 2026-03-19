@@ -1,0 +1,167 @@
+/* ===== Catppuccin Mocha ===== */
+/* base:    #1e1e2e */
+/* mantle:  #181825 */
+/* surface0:#313244 */
+/* surface1:#45475a */
+/* text:    #cdd6f4 */
+/* subtext1:#bac2de */
+/* mauve:   #cba6f7 */
+/* blue:    #89b4fa */
+/* red:     #f38ba8 */
+/* green:   #a6e3a1 */
+/* yellow:  #f9e2af */
+/* peach:   #fab387 */
+
+* {
+    font-family: JetBrains Mono, monospace;
+    font-size: 13px;
+    transition: none;
+}
+
+/* ===== Notification window ===== */
+.notification-row {
+    outline: none;
+    margin: 4px 8px;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+    background: transparent;
+}
+
+.notification {
+    border-radius: 12px;
+    margin: 4px 0;
+    padding: 0;
+    border: 1px solid #45475a;
+}
+
+.notification-content {
+    background-color: #1e1e2e;
+    border-radius: 12px;
+    padding: 12px;
+    color: #cdd6f4;
+}
+
+.notification-default-action {
+    background-color: #1e1e2e;
+    border-radius: 12px;
+}
+
+.notification-default-action:hover {
+    background-color: #313244;
+    border-radius: 12px;
+}
+
+/* ===== Urgency levels ===== */
+.low {
+    border-left: 3px solid #a6e3a1;
+}
+
+.normal {
+    border-left: 3px solid #89b4fa;
+}
+
+.critical {
+    border-left: 3px solid #f38ba8;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%   { border-color: #f38ba8; }
+    50%  { border-color: #fab387; }
+    100% { border-color: #f38ba8; }
+}
+
+/* ===== Text ===== */
+.notification-title {
+    font-weight: bold;
+    font-size: 14px;
+    color: #cdd6f4;
+}
+
+.notification-body {
+    font-size: 12px;
+    color: #bac2de;
+}
+
+.notification-action {
+    background-color: #313244;
+    border-radius: 8px;
+    color: #cdd6f4;
+    margin: 4px;
+    padding: 4px 8px;
+}
+
+.notification-action:hover {
+    background-color: #45475a;
+}
+
+/* ===== Control center ===== */
+.control-center {
+    background-color: #181825;
+    border-radius: 16px;
+    border: 1px solid #313244;
+    padding: 8px;
+    color: #cdd6f4;
+}
+
+.control-center-list {
+    background: transparent;
+}
+
+/* ===== Title bar ===== */
+.widget-title {
+    color: #cdd6f4;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px 12px;
+}
+
+.widget-title > button {
+    background-color: #313244;
+    border-radius: 8px;
+    color: #cdd6f4;
+    border: none;
+    padding: 4px 12px;
+    font-size: 12px;
+}
+
+.widget-title > button:hover {
+    background-color: #f38ba8;
+    color: #1e1e2e;
+}
+
+/* ===== Do not disturb toggle ===== */
+.widget-dnd {
+    padding: 4px 12px 8px 12px;
+    color: #bac2de;
+    font-size: 12px;
+}
+
+.widget-dnd > switch {
+    background-color: #313244;
+    border-radius: 12px;
+    border: none;
+}
+
+.widget-dnd > switch:checked {
+    background-color: #cba6f7;
+    color: #1e1e2e;
+}
+
+.widget-dnd > switch slider {
+    background-color: #cdd6f4;
+    border-radius: 12px;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+/* ===== Empty state ===== */
+.blank-window {
+    background: transparent;
+}
+
+.floating-notifications {
+    background: transparent;
+}

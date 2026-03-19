@@ -1,0 +1,143 @@
+/* ===== Catppuccin Mocha palette ===== */
+/* base:    #1e1e2e */
+/* mantle:  #181825 */
+/* crust:   #11111b */
+/* text:    #cdd6f4 */
+/* subtext: #bac2de */
+/* surface0:#313244 */
+/* surface1:#45475a */
+/* mauve:   #cba6f7 */
+/* blue:    #89b4fa */
+/* sapphire:#74c7ec */
+/* sky:     #89dceb */
+/* teal:    #94e2d5 */
+/* green:   #a6e3a1 */
+/* yellow:  #f9e2af */
+/* peach:   #fab387 */
+/* red:     #f38ba8 */
+
+* {
+    font-family: JetBrains Mono, monospace;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #cdd6f4;
+}
+
+/* ===== Module groups ===== */
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: #1e1e2e;
+    border-radius: 12px;
+    margin: 4px 4px;
+    padding: 0 8px;
+}
+
+/* ===== Workspaces ===== */
+#workspaces {
+    padding: 0 4px;
+}
+
+#workspaces button {
+    color: #585b70;
+    background: transparent;
+    padding: 0 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+    color: #cdd6f4;
+    background: #313244;
+}
+
+#workspaces button.active {
+    color: #cba6f7;
+    background: #313244;
+}
+
+#workspaces button.urgent {
+    color: #1e1e2e;
+    background: #f38ba8;
+}
+
+/* ===== Window title ===== */
+#window {
+    color: #bac2de;
+    padding: 0 8px;
+    font-style: italic;
+}
+
+/* ===== Clock ===== */
+#clock {
+    color: #89b4fa;
+    font-weight: bold;
+    padding: 0 12px;
+}
+
+/* ===== Media ===== */
+#custom-media {
+    color: #a6e3a1;
+    padding: 0 12px;
+}
+
+#custom-media.Playing {
+    color: #a6e3a1;
+}
+
+#custom-media.Paused {
+    color: #585b70;
+}
+
+/* ===== Audio ===== */
+#pulseaudio {
+    color: #89dceb;
+    padding: 0 12px;
+}
+
+#pulseaudio.muted {
+    color: #585b70;
+}
+
+/* ===== Network ===== */
+#network {
+    color: #94e2d5;
+    padding: 0 12px;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+/* ===== Bluetooth ===== */
+#bluetooth {
+    color: #74c7ec;
+    padding: 0 12px;
+}
+
+#bluetooth.off {
+    color: #585b70;
+}
+
+/* ===== Tray ===== */
+#tray {
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #f38ba8;
+    border-radius: 8px;
+}
