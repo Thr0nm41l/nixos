@@ -303,8 +303,8 @@ PanelWindow {
                     anchors.fill: parent; acceptedButtons: Qt.LeftButton | Qt.RightButton
                     hoverEnabled: true
                     onClicked: (mouse) => {
-                        if (mouse.button === Qt.LeftButton) Quickshell.execDetached(["swaync-client", "-t", "-sw"]);
-                        if (mouse.button === Qt.RightButton) Quickshell.execDetached(["swaync-client", "-d"]);
+                        if (mouse.button === Qt.LeftButton) Quickshell.execDetached(["bash", "-c", "swaync-client -t -sw"]);
+                        if (mouse.button === Qt.RightButton) Quickshell.execDetached(["bash", "-c", "swaync-client -d"]);
                     }
                 }
             }

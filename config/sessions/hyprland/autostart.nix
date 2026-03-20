@@ -5,6 +5,7 @@
       "exec-once" = [
 	 "swww-daemon"
 	 "nm-applet --indicator"
+	 "swaync"
 	 "hypridle"
 	 "playerctld"
 	 "wl-paste --type text --watch cliphist store"
