@@ -178,6 +178,10 @@ in
       name = "MesloLGS NF";
       size = 12;
     };
+    settings = {
+      background = "#1a1b26";       # dark navy — change to any hex color
+      background_opacity = "0.35";  # 0.0 = fully transparent, 1.0 = fully opaque
+    };
   };
 
   programs.vscode = {
