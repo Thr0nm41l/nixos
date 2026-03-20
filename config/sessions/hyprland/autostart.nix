@@ -4,6 +4,7 @@
    wayland.windowManager.hyprland.settings = {
       "exec-once" = [
 	 "swww-daemon"
+	 "nm-applet --indicator"
 	 "hypridle"
 	 "playerctld"
 	 "wl-paste --type text --watch cliphist store"
