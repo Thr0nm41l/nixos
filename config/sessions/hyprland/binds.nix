@@ -20,7 +20,7 @@
       ];
       
       bindl = [
-	 "$mainMod, SPACE, exec, playerctl play-pause"
+	 "$mainMod, P, exec, playerctl play-pause"
 	 ", XF86AudioPause, exec, playerctl play-pause"
 	 ", XF86AudioPlay, exec, playerctl play-pause"
 	 ", xf86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
@@ -39,26 +39,26 @@
       bind =
       [	
 	 "$mainMod&SHIFT_L, R, exec, bash ~/.config/eww/bar/launch_bar.sh"
-	 "$mainMod, D, exec, bash ~/.config/hypr/scripts/rofi_show.sh drun"
+	 "$mainMod, SPACE, exec, bash ~/.config/hypr/scripts/rofi_show.sh drun"
 	 "ALT, TAB, exec, bash ~/.config/hypr/scripts/rofi_show.sh window"
 	 "$mainMod, TAB, exec, bash ~/.config/hypr/scripts/quicklinks.sh"
-	 "$mainMod, C, exec, bash ~/.config/hypr/scripts/rofi_clipboard.sh"
-	 "$mainMod, M, exec, bash ~/.config/hypr/scripts/qs_manager.sh toggle monitors"
-         "$mainMod, A, exec, swaync-client -t -sw"
+	 "$mainMod, V, exec, bash ~/.config/hypr/scripts/rofi_clipboard.sh"
+	 "$mainMod, A, exec, swaync-client -t -sw"
 	 "$mainMod&SHIFT_L, F, togglefloating,"
+	 "$mainMod, Q, killactive,"
 
 	 # Quickshell windows
 	 "$mainMod&SHIFT_L, S, exec, bash ~/.config/hypr/scripts/qs_manager.sh toggle stewart"
-	 "$mainMod, Q, exec, bash ~/.config/hypr/scripts/qs_manager.sh toggle music"
+	 "$mainMod, M, exec, bash ~/.config/hypr/scripts/qs_manager.sh toggle music"
 	 "$mainMod, B, exec, bash ~/.config/hypr/scripts/qs_manager.sh toggle battery"
 	 "$mainMod, W, exec, bash ~/.config/hypr/scripts/qs_manager.sh toggle wallpaper"
-	 "$mainMod, S, exec, bash ~/.config/hypr/scripts/qs_manager.sh toggle calendar"
+	 "$mainMod, S, exec, bash ~/.config/hypr/scripts/qs_manager.sh toggle monitors"
          "$mainMod, N, exec, bash ~/.config/hypr/scripts/qs_manager.sh toggle network"
 
-
+	 # Applications
          "$mainMod, F, exec, firefox"
-         "$mainMod, E, exec, nautilus"
-         "$mainMod, T, exec, Telegram"
+         "$mainMod, E, exec, thunar"
+         "$mainMod, D, exec, discord"
 	 "$mainMod, O, exec, obsidian"
          "$mainMod, RETURN, exec, $terminal"
 
