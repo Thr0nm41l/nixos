@@ -20,9 +20,9 @@
       edit = "sudo -E nvim -n";
       update = "sudo nixos-rebuild switch";
       stop = "shutdown now";
-      edconf = "sudo -E nvim /etc/nixos/configuration.nix";
+      edconf = "sudo -E nvim /etc/nixos/nixos-config/nixos/configuration.nix";
       out = "loginctl terminate-user thron";
-      edeww = "sudo -E nvim /etc/nixos/config/programs/eww/new-eww/";
+      edeww = "sudo -E nvim /etc/nixos/nixos-config/nixos/config/programs/eww/new-eww/";
       btw = "echo I use NixOS btw";
     };
 
@@ -37,8 +37,8 @@
     };
 
   home.sessionVariables = {
-      hypr = "/etc/nixos/config/sessions/hyprland/";  
-      programs = "/etc/nixos/config/programs";
+      hypr = "/etc/nixos/nixos-config/nixos/config/sessions/hyprland/";
+      programs = "/etc/nixos/nixos-config/nixos/config/programs";
     };
 
 }

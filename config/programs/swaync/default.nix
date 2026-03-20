@@ -5,5 +5,5 @@
        pkgs.swaynotificationcenter
    ];
 
-   xdg.configFile."swaync".source = config.lib.file.mkOutOfStoreSymlink "/etc/nixos/config/programs/swaync";
+   xdg.configFile."swaync".source = config.lib.file.mkOutOfStoreSymlink "/etc/nixos/nixos-config/nixos/config/programs/swaync";
 }

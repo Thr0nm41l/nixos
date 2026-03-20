@@ -77,5 +77,5 @@
   home.sessionVariables.NIXOS_OZONE_WL = "1";
   home.file.".config/hypr/scripts".source =
   config.lib.file.mkOutOfStoreSymlink
-    "/etc/nixos/config/sessions/hyprland/scripts";
+    "/etc/nixos/nixos-config/nixos/config/sessions/hyprland/scripts";
 }
