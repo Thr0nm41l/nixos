@@ -226,7 +226,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Kernel Packages and Optimization
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_12; # LTS — linuxPackages_latest (6.19) breaks NVIDIA 580 driver
   hardware.cpu.intel.updateMicrocode = true;
 
   boot.kernelModules = [ "tcp_bbr" ]; # FIX: Network Congestion Control (Helps with packet jitter)

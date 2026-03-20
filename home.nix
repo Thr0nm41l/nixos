@@ -93,6 +93,7 @@ in
     steam-run
     teamspeak6-client
     p7zip
+    discord
 
     # Icon themes
     papirus-icon-theme
