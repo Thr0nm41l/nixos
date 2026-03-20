@@ -148,6 +148,17 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
+  systemd.services.rfkill-unblock-bluetooth = {
+    description = "Unblock bluetooth rfkill soft block";
+    before = [ "bluetooth.service" ];
+    wantedBy = [ "bluetooth.service" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.util-linux}/bin/rfkill unblock bluetooth";
+      RemainAfterExit = true;
+    };
+  };
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
