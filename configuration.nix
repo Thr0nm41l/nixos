@@ -252,7 +252,8 @@
     enable32Bit = true; # Required for Steam/CS2
   };
 
-  # Load NVIDIA Drivers
+  # Required for NVIDIA drivers even on Wayland
+  services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
