@@ -11,7 +11,10 @@
     history.path = "$HOME/.zsh_history";
     history.ignoreAllDups = true;
 
-    initContent = builtins.readFile ./zsh-init.sh;
+    initContent = ''
+      ${builtins.readFile ./zsh-init.sh}
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+    '';
 
     shellAliases = {
       edit = "sudo -E nvim -n";
@@ -31,7 +34,6 @@
       }
     ];
 
-    initContent = "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh";
     };
 
   home.sessionVariables = {
