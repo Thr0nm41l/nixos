@@ -790,12 +790,12 @@
        ;; 1. If Charging -> Green to Teal
        ;; 2. If < 20% -> Red to Maroon
        ;; 3. Else -> Sapphire to Blue
-       :style "background-image: linear-gradient(135deg, ${EWW_BATTERY.BAT0.status == 'Charging' ? '#a6e3a1, #94e2d5' : (EWW_BATTERY.BAT0.capacity < 20 ? '#f38ba8, #eba0ac' : '#74c7ec, #89b4fa')}); padding: 2px;"
+       :style "background-image: linear-gradient(135deg, ${EWW_BATTERY.BAT1.status == 'Charging' ? '#a6e3a1, #94e2d5' : (EWW_BATTERY.BAT1.capacity < 20 ? '#f38ba8, #eba0ac' : '#74c7ec, #89b4fa')}); padding: 2px;"
        
     (box :class "bat-window-container" :orientation "h" :space-evenly false
       
       ;; --- LEFT: VISUAL GAUGE ---
-      (box :class "bat-left-panel ${EWW_BATTERY.BAT0.status == 'Charging' ? 'charging' : (EWW_BATTERY.BAT0.capacity < 20 ? 'critical' : 'normal')}" 
+      (box :class "bat-left-panel ${EWW_BATTERY.BAT1.status == 'Charging' ? 'charging' : (EWW_BATTERY.BAT1.capacity < 20 ? 'critical' : 'normal')}" 
            :width 220
            :orientation "v" 
            :space-evenly true
@@ -803,16 +803,16 @@
 
            (overlay
               (circular-progress :class "bat-circle"
-                                 :value {EWW_BATTERY.BAT0.capacity}
+                                 :value {EWW_BATTERY.BAT1.capacity}
                                  :thickness 10
                                  :start-at 75
                                  :clockwise true)
                
               (box :orientation "v" :valign "center" :halign "center" :space-evenly false
-                   (label :class "bat-left-icon ${EWW_BATTERY.BAT0.status == 'Charging' ? 'anim-charging' : ''}" 
-                          :text {EWW_BATTERY.BAT0.status == 'Charging' ? "󰂄" : 
-                                (EWW_BATTERY.BAT0.capacity < 20 ? "󰂃" : "󰁹")})
-                   (label :class "bat-left-text" :text "${EWW_BATTERY.BAT0.capacity}%")
+                   (label :class "bat-left-icon ${EWW_BATTERY.BAT1.status == 'Charging' ? 'anim-charging' : ''}" 
+                          :text {EWW_BATTERY.BAT1.status == 'Charging' ? "󰂄" : 
+                                (EWW_BATTERY.BAT1.capacity < 20 ? "󰂃" : "󰁹")})
+                   (label :class "bat-left-text" :text "${EWW_BATTERY.BAT1.capacity}%")
               )
            )
       )
@@ -823,10 +823,10 @@
            ;; 1. Status Text Header
            (box :class "bat-info-header" :orientation "v" :space-evenly false :vexpand true :valign "center"
                 (label :class "bat-info-title" :halign "start" 
-                       :text {EWW_BATTERY.BAT0.status == 'Charging' ? "Charging" : 
-                              (EWW_BATTERY.BAT0.capacity > 98 ? "Fully Charged" : "Discharging")})
+                       :text {EWW_BATTERY.BAT1.status == 'Charging' ? "Charging" : 
+                              (EWW_BATTERY.BAT1.capacity > 98 ? "Fully Charged" : "Discharging")})
                 (label :class "bat-info-sub" :halign "start" 
-                       :text {EWW_BATTERY.BAT0.status == 'Charging' ? "AC Power Connected" : "On Battery Power"})
+                       :text {EWW_BATTERY.BAT1.status == 'Charging' ? "AC Power Connected" : "On Battery Power"})
            )
 
            ;; 2. Power Profile Switcher

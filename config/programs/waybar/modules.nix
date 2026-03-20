@@ -6,7 +6,7 @@
 	  interval = 3;
 	  align = 0;
 	  rotate = 0;
-	  bat = "BAT0";
+	  bat = "BAT1";
 	  adapter = "AC0";
 	  full-at = 100;
 	  design-capacity = false;
