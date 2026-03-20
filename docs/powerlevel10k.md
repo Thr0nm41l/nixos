@@ -16,7 +16,7 @@ After the wizard, p10k writes its config to `~/.p10k.zsh`. To track it in the re
 ```nix
 programs.zsh = {
     ...
-    initExtra = "source ~/.p10k.zsh";
+    initContent = "source ~/.p10k.zsh";
 };
 ```
 
