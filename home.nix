@@ -56,6 +56,7 @@ in
     htop
     mission-center
     networkmanagerapplet
+    piper
     pavucontrol
     btop
 

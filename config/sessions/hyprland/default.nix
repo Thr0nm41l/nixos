@@ -61,10 +61,17 @@
       kb_variant = "";
       kb_model = "";
       kb_rules = "";
+      sensitivity = 0; # mouse software sensitivity (-1.0 to 1.0), tune if needed
+      accel_profile = "flat";
       touchpad = {
         natural_scroll = true;
       };
-      accel_profile = "flat";
+    };
+
+    "device" = {
+      name = "elan1203:00-04f3:307a-touchpad";
+      sensitivity = 0.2;
+      accel_profile = "adaptive";
     };
     misc = {
       font_family = "JetBrains Mono";
