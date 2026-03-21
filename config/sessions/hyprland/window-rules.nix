@@ -30,6 +30,9 @@
       "immediate, class:^(cs2)$"
       "keepaspectratio, class:^(cs2)$"
 
+      # ───────── Steam games ─────────
+      "workspace 8 silent, class:^(steam_app_.*)$"
+
       # ───────── App Launcher ─────────
       "float, title:^(app-launcher)$"
       "center, title:^(app-launcher)$"
