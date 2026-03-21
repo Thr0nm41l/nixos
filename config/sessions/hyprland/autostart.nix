@@ -11,6 +11,7 @@
 	 "wl-paste --type text --watch cliphist store"
 	 "wl-paste --type image --watch cliphist store"
 	 "systemctl --user enable --now easyeffects"
+	 "sleep 3 && alsactl restore"
 	 "${./scripts/volume_listener.sh}"
 	 "gsettings set org.gnome.desktop.interface cursor-theme 'ArcMidnight-Cursors'"
     	 "gsettings set org.gnome.desktop.interface cursor-size 24"
