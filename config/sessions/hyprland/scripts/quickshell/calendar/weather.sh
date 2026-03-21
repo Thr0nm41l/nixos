@@ -21,6 +21,10 @@ KEY="$OPENWEATHER_KEY"
 ID="$OPENWEATHER_CITY_ID"
 UNIT="$OPENWEATHER_UNIT"
 
+# Force C locale for printf — French LC_NUMERIC uses comma as decimal separator
+# which breaks printf "%.1f" when jq outputs dots.
+export LC_NUMERIC=C
+
 mkdir -p "${cache_dir}"
 
 get_icon() {
